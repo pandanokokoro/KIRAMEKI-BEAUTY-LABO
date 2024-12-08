@@ -1,0 +1,642 @@
+//-----------------------------------------------------
+// scss: 変数設定
+//-----------------------------------------------------
+
+// カンプ / コンテンツ幅の指定
+$sp-full-width: 390;  // スマホ用のカンプ幅
+$pc-full-width: 1440;    // PC用のカンプ幅
+$pc-content-width: 1000; // PC用のカンプのコンテンツ幅(ガイド線の幅)
+
+// ブレークポイント設定
+// スマホ:
+//    0px ~ 768px未満 -> スマホ用のカンプをベースにvwで実装
+// タブレット:
+//    768px ~ PCコンテンツ幅未満 -> PC用のカンプをベースにvwで実装。予算の多い案件ではタブレット用のカンプが提供される場合もある。
+// PC:
+//    PCコンテンツ幅以上 -> PC用のカンプをベースにpx(rem)で実装
+$breakpoint-md: 768;
+$breakpoint-lg: $pc-content-width;
+
+// 本番用か否か？本番用の場合は1にする。
+// 0の場合はpxで出力される。パーフェクトピクセルで合わせる時に便利。
+$production: 1;
+
+
+//-----------------------------------------------------
+//  scss: ブレークポイント関数
+//-----------------------------------------------------
+
+$breakpoints: (
+    "md": "screen and (min-width: #{$breakpoint-md}px)",
+    "lg": "screen and (min-width: #{$breakpoint-lg}px)",
+) !default;
+
+@mixin mq($breakpoint: md) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+
+//-----------------------------------------------------
+//  scss: 変換関数群
+//-----------------------------------------------------
+
+// SP用: vwへの変換
+@function vw($px) {
+    @if $production !=1 {
+        @return $px * 1px;
+    }
+
+    @return calc($px * 100vw / $sp-full-width);
+}
+
+// タブレット用: vwへの変換
+@function vwt($px) {
+    @if $production !=1 {
+        @return $px * 1px;
+    }
+
+    @return calc($px * 100vw / $pc-content-width);
+}
+
+// PC用: pxをremに変換
+@function px2Rem($px) {
+    @if $production !=1 {
+        @return $px * 1px;
+    }
+
+    @return calc($px / 16) * 1rem;
+}
+
+// PC用: pxをvwに変換
+// ヘッダーなどコンテンツ幅ベースではなくかんぷ幅ベースでvwを使いたい場合に使用。
+// あまり使わない。
+@function vwp($px) {
+    @if $production !=1 {
+        @return $px * 1px;
+    }
+
+    @return calc($px * 100vw / $pc-full-width);
+}
+
+
+// global
+// ---------------
+
+// color
+$primary-pink: #fa7da3;
+$primary-white: #fff;
+$primary-black: #333;
+$green: #49c43d;
+$right-pink: #fdf0f5;
+$right-pink-dot: #ffd2d2;
+$secondary-black: #433d3f;
+$secondary-white: #ffffff00;
+$grey: #666;
+$sky-blue: #50bfff;
+$primary-brown: #4d2c1c;
+$secondary-brown: #4d2b1b;
+$yellow: #fffd7a;
+$right-yellow: #fffedd;
+$right-grey: #00000040;
+
+// font
+$font-base: "Noto Sans JP", serif;
+$font-outfit: 'Outfit', sans-serif;
+
+// base
+
+body {
+    color: $primary-black;
+    font-family: $font-base;
+    font-size: vw(14);
+    font-weight: 400;
+    line-height: 1.5;
+}
+a {
+    display: block;
+}
+
+// component > button
+// ------------------------------
+.button__main {
+    width: vw(350);
+    height: vw(80);
+    padding: vw(10) vw(18) vw(10) vw(72);
+    border-radius: vw(40);
+    color: $primary-white;
+    background-color: $green;
+    margin: 0 auto;
+    cursor: pointer;
+    @include mq() {
+        width: vwt(570);
+        height: vwt(130);
+        border-radius: vwt(65);
+        padding: vwt(16) vwt(52) vwt(16) vwt(118);
+    }
+    @include mq(lg) {
+        width: px2Rem(570);
+        height: px2Rem(130);
+        border-radius: px2Rem(65);
+        padding: px2Rem(16) px2Rem(52) px2Rem(16) px2Rem(118);
+    }
+    & span {
+        display: block;
+        text-align: center;
+        font-size: vw(21);
+        line-height: 1.333333333;
+        letter-spacing: 0.1em;
+        @include mq() {
+            font-size: vwt(34);
+            line-height: 1.32352941;
+        }
+        @include mq(lg) {
+            font-size: px2Rem(34);
+        }
+    }
+    & img {
+        width: vw(12);
+        margin-left: auto;
+        @include mq() {
+            width: vwt(19);
+        }
+        @include mq(lg) {
+            width: px2Rem(19);
+        }
+    }
+    &-container {
+        display: flex;
+        width: vw(246);
+        display: flex;
+        justify-content: center;
+        @include mq() {
+            width: vwt(400);
+        }
+        @include mq(lg) {
+            width: px2Rem(400);
+        }
+    }
+    &:hover {
+        background-color: #40e02f;
+    }
+}
+.button__header-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $primary-white;
+    background-color: $primary-pink;
+    width: vw(107);
+    height: vw(31);
+    margin-right: vw(10);
+    font-size: vw(12);
+    border-radius: vw(15.5);
+    padding: vw(5.5) vw(8.9) vw(8.4) vw(11);
+    gap: vw(7);
+    @include mq() {
+        width: vwt(189);
+        height: vwt(50);
+        font-size: vwt(20);
+        border-radius: vwt(25.18);
+        padding: vwt(9) vwt(16) vwt(10.9) vwt(25);
+        gap: vwt(12);
+    }
+    @include mq(lg) {
+        width: px2Rem(189);
+        height: px2Rem(50);
+        font-size: px2Rem(20);
+        border-radius: px2Rem(25.18);
+        padding: px2Rem(9) px2Rem(16) px2Rem(10.9) px2Rem(25);
+        gap: px2Rem(12);
+    }
+    & img {
+        width: vw(6);
+        margin-top: vw(3);
+        @include mq() {
+            width: vwt(9.6);
+            margin-top: vwt(3);
+        }
+        @include mq(lg) {
+            width: px2Rem(9.6);
+            margin-top: px2Rem(3);
+        }
+    }
+    &:hover {
+        opacity: .8;
+    }
+}
+.button__header-reservation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $primary-white;
+    background-color: $green;
+    width: vw(173);
+    height: vw(31);
+    font-size: vw(12);
+    border-radius: vw(15.5);
+    padding: vw(7) vw(8.9) vw(8.4) vw(11);
+    letter-spacing: 0.004em;
+    gap: vw(10);
+    @include mq() {
+        width: vwt(295);
+        height: vwt(50);
+        font-size: vwt(20);
+        border-radius: vwt(25.18);
+        padding: vwt(9) vwt(16) vwt(10.9) vwt(25);
+        gap: vwt(9);
+    }
+    @include mq(lg) {
+        width: px2Rem(295);
+        height: px2Rem(50);
+        font-size: px2Rem(20);
+        border-radius: px2Rem(25.18);
+        padding: px2Rem(9) px2Rem(16) px2Rem(10.9) px2Rem(25);
+        gap: px2Rem(9);
+    }
+    & img {
+        width: vw(6);
+        margin-top: vw(3);
+        @include mq() {
+            width: vwt(9.6);
+            margin-top: vwt(3);
+        }
+        @include mq(lg) {
+            width: px2Rem(9.6);
+            margin-top: px2Rem(3);
+        }
+    }
+    & span {
+        font-size: vw(10);
+        @include mq() {
+            font-size: vwt(17);
+        }
+        @include mq(lg) {
+            font-size: px2Rem(17);
+        }
+    }
+    &:hover {
+        opacity: .8;
+    }
+}
+
+// ヘッダー
+// ------------------------------
+.header {
+    height: vw(60);
+    padding: vw(10) vw(9) vw(10) vw(12);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: $primary-white;
+    @include mq() {
+        padding: vwt(16) vwt(10) vwt(20);
+        height: vwt(92);
+    }
+    @include mq(lg) {
+        padding: px2Rem(16) px2Rem(10) px2Rem(10);
+        height: px2Rem(92);
+    }
+}
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include mq() {
+        max-width: vwt(1025);
+        margin: 0 auto;
+    }
+    @include mq(lg) {
+        max-width: px2Rem(1025);
+        margin: 0 auto;
+    }
+}
+.header__logo {
+    margin-right: vw(6);
+    line-height: 0;
+    @include mq() {
+        margin-right: auto;
+    }
+    @include mq(lg) {
+        margin-right: auto;
+    }
+    &-img {
+        width: vw(71.5);
+        @include mq() {
+            width: vwt(96);
+        }
+        @include mq(lg) {
+            width: px2Rem(96);
+        }
+    }
+}
+.main-visual {
+    background-color: $primary-pink;
+    height: vw(318);
+    background-image: url("/assets/image/woman_turned_away_sp.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: vw(56);
+    @include mq() {
+        height: vwt(612);
+        margin-top: vwt(92);
+        background-image: url("/assets/image/woman_turned_away_pc.png");
+        background-position: left;
+    }
+    @include mq(lg) {
+        height: px2Rem(612);
+        margin-top: px2Rem(92);
+        background-image: url("/assets/image/woman_turned_away_pc.png");
+        background-position: left;
+    }
+    &__container {
+        @include mq(lg) {
+            max-width: px2Rem(1000);
+            margin: 0 auto;
+        }
+    }
+    &__header-container {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+    }
+    &__title-img01 {
+    position: absolute;
+    display: block;
+    width: vw(164);
+    top: vw(26);
+    left: vw(19);
+    @include mq() {
+        width: vwt(488);
+        top: vwt(26);
+        left: vwt(19);
+    }
+    @include mq(lg) {
+        width: px2Rem(488);
+        top: px2Rem(26);
+        left: px2Rem(19);
+    }
+    }
+    &__title-img02 {
+    position: absolute;
+    display: block;
+    width: vw(94);
+    top: vw(75);
+    left: vw(56);
+    @include mq() {
+        width: vwt(238);
+        top: vwt(156);
+        left: vwt(285);
+    }
+    @include mq(lg) {
+        width: px2Rem(238);
+        top: px2Rem(156);
+        left: px2Rem(285);
+    }
+    }
+    &__title-text {
+        box-shadow: 4px 4px 0px #00000040;
+        background-color: rgba(255, 255, 255, 0.3);
+        margin-left: auto;
+        padding: vw(18.6) 0 vw(10) vw(26);
+        width: vw(187);
+        height: vw(111);
+        display: flex;
+        gap: vw(12);
+        align-items: center;
+        @include mq() {
+            padding: vwt(46) 0 vwt(40) vwt(67);
+            width: vwt(432);
+            height: vwt(222);
+            gap: vwt(12);
+        }
+        @include mq(lg) {
+            padding: px2Rem(46) 0 px2Rem(40) px2Rem(67);
+            width: px2Rem(432);
+            height: px2Rem(222);
+            gap: px2Rem(12);
+        }
+        &-item1 {
+            width: vw(47);
+            height: vw(23);
+            font-size: vw(13);
+            font-weight: 700;
+            color: $primary-pink;
+            padding: vw(2) vw(4);
+            background-color: $primary-white;
+            opacity: 1;
+            @include mq() {
+            width: vwt(105);
+            height: vwt(51);
+            font-size: vwt(29);
+            padding: vwt(2) vwt(4);
+            }
+            @include mq(lg) {
+            width: px2Rem(105);
+            height: px2Rem(51);
+            font-size: px2Rem(29);
+            padding: px2Rem(2) px2Rem(4);
+            }
+        }
+        &-item2 {
+            margin-top: vw(3);
+            font-size: vw(24);
+            font-weight: 700;
+            color: $primary-white;
+            @include mq() {
+            margin-top: vwt(3);
+            font-size: vwt(54);
+            }
+            @include mq(lg) {
+            margin-top: px2Rem(3);
+            font-size: px2Rem(54);
+            }
+        }
+        &-item3 {
+            font-size: vw(75);
+            font-weight: 700;
+            color: $yellow;
+            align-items:center;
+            line-height: 0;
+            @include mq() {
+                font-size: vwt(170);
+            }
+            @include mq(lg) {
+                font-size: px2Rem(170);
+            }
+
+            & span {
+                font-size: vw(35.9);
+                @include mq() {
+                    font-size: vwt(80);
+                }
+                @include mq(lg) {
+                    font-size: px2Rem(80);
+                }
+            }
+        }
+    }
+    &__price {
+        width: vw(354);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: vw(7) 0 0 vw(16);
+        color: $primary-white;
+        font-family: $font-outfit;
+        font-size: vw(13.9);
+        & span {
+            font-family: $font-base;
+            font-size: vw(8.9);
+            @include mq() {
+                font-size: vwt(16.9);
+            }
+            @include mq(lg) {
+                font-size: px2Rem(16.9);
+            }
+        }
+        @include mq() {
+            font-size: vwt(26.4);
+            width: vwt(900);
+            margin: vwt(9) 0 0 vwt(16);
+        }
+        @include mq(lg) {
+            font-size: px2Rem(26.4);
+            width: px2Rem(900);
+            margin: px2Rem(9) 0 0 px2Rem(16);
+        }
+    }
+    &__catch-list {
+        width: vw(354);
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: vw(17.8);
+        margin: vw(20) 0 0 vw(16);
+        @include mq(){
+            width: vwt(980);
+            gap: vwt(20);
+            margin: vwt(48) 0 0 vwt(8);
+        }
+        @include mq(lg) {
+            width: px2Rem(980);
+            gap: px2Rem(20);
+            margin: px2Rem(48) 0 0 px2Rem(8);
+        }
+    }
+    &__catch-item {
+        width: vw(133);
+        height: vw(35);
+        display: grid;
+        place-items: center;
+        border: 1px solid $primary-white;
+        color: $primary-white;
+        font-size: vw(18);
+        @include mq() {
+            width: vwt(423);
+            height: vwt(67);
+            font-size: vwt(28);
+        }
+        @include mq(lg) {
+            width: px2Rem(423);
+            height: px2Rem(67);
+            font-size: px2Rem(28);
+        }
+    }
+}
+// キャンペーン
+// --------------------------------------
+.campaign {
+    height: vw(191);
+    padding: vw(19) vw(21) vw(14) vw(19);
+    background-color: $right-yellow;
+
+
+    &__container-catch {
+        width: vw(85);
+        font-size: vw(21);
+        line-height: 1;
+        color: $primary-pink;
+        position: relative;
+        margin: 0 auto;
+        text-align: center;
+        &::before {
+            content: "";
+            position: absolute;
+            left: vw(-8);
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            margin-right: vw(3);
+            background-color: $primary-pink;
+            transform: rotate(-30deg);
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            right: vw(-4);
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: $primary-pink;
+            transform: rotate(30deg);
+        }
+    }
+    &__container-main {
+        margin-top: vw(11);
+        margin-bottom: vw(13);
+        &-head {
+            width: vw(350);
+            height: vw(32);
+            font-size: vw(21);
+            border-top-left-radius: vw(10);
+            border-top-right-radius: vw(10);
+            padding: vw(5);
+            line-height: 1;
+            color: $primary-white;
+            background-color: $primary-pink;
+            border-top: 1px solid $primary-pink;
+            border-right: 1px solid $primary-pink;
+            border-left: 1px solid $primary-pink;
+            text-align: center;
+        }
+        &-body {
+            width: vw(350);
+            height: vw(61);
+            font-size: vw(27);
+            border-bottom-left-radius: vw(10);
+            border-bottom-right-radius: vw(10);
+            line-height: 1;
+            color: $primary-pink;
+            background-color:  $primary-white;
+            border-bottom: 1px solid $primary-pink;
+            border-right: 1px solid $primary-pink;
+            border-left: 1px solid $primary-pink;
+            text-align: center;
+            padding-top: vw(10);
+            & span {
+                font-size: vw(42);
+                font-weight: 600;
+            }
+        }
+    }
+    &__container-remark {
+        font-size: vw(10);
+        text-align: center;
+        line-height: 1;
+    }
+}
+// 無料体験実施中
+// --------------------------------------
+.free-trial {
+    &__catch {
+        font-size: vw(21);
+        margin-bottom: vw(8);
+        font-weight: 600;
+        color: $primary-pink;
+        text-align: center;
+        line-height: 1;
+    }
+}
