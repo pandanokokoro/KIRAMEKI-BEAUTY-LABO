@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Outfit:wght@400&display=swap" rel="stylesheet">
     <!-- swiper css-->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
     <!-- css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.1/destyle.min.css">
@@ -50,19 +50,19 @@
         <section class="main-visual">
             <div class="main-visual__container">
                 <h1 class="main-visual__title">
-                    <div role="heading" aria-level="1" class="main-visual__header-container" >
+                    <span role="heading" aria-level="1" class="main-visual__header-container" >
                         <img src="assets/image/main_visual_title_01.svg" class="main-visual__title-img01" alt="全身脱毛">
                         <img src="assets/image/main_visual_title_02.svg" class="main-visual__title-img02" alt="(顔・VIO込)">
-                        <div class="main-visual__title-text">
-                            <div class="main-visual__title-text-left">
-                                <p class="main-visual__title-text-item1">今だけ</p>
-                                <p class="main-visual__title-text-item2">初月</p>
-                            </div>
-                            <div class="main-visual__title-text-right">
-                                <p class="main-visual__title-text-item3">0<span>円</span></p>
-                            </div>
-                        </div>
-                    </div>
+                        <span class="main-visual__title-text">
+                            <span class="main-visual__title-text-left">
+                                <span class="main-visual__title-text-item1">今だけ</span>
+                                <span class="main-visual__title-text-item2">初月</span>
+                            </span>
+                            <span class="main-visual__title-text-right">
+                                <span class="main-visual__title-text-item3">0<span>円</span></span>
+                            </span>
+                        </span>
+                    </span>
                 </h1>
                 <p class="main-visual__price">2,480<span>円／月</span></p>
                 <ul class="main-visual__catch-list">
@@ -73,7 +73,7 @@
             </div>
         </section>
         <!-- 今だけキャンペーン -->
-        <section class="campaign">
+        <div class="campaign">
             <div class="campaign__container">
                 <p class="campaign__container-catch">今だけ！</p>
                 <div class="campaign__container-main">
@@ -82,11 +82,11 @@
                 </div>
                 <p class="campaign__container-remark">クレンジング/洗顔/フェイスヒーリング/ 整肌</p>
             </div>
-        </section>
+        </div>
         <!-- 無料体験内容 -->
-        <section class="trial-detail">
+        <div class="trial-detail">
             <!-- 無料体験実施中 -->
-            <section class="free-trial">
+            <div class="free-trial">
                 <div class="free-trial__container">
                     <p class="free-trial__catch">無料体験実施中！</p>
                     <!-- カウンセリング予約のボタン -->
@@ -100,14 +100,14 @@
                         </div>
                     </a>
                 </div>
-            </section>
+            </div>
             <!-- 無料体験内容 -->
             <div class="free-trial__overview">
                 <div class="free-trial__overview-title">無料体験内容</div>
                 <p class="free-trial__overview-detail">〈脱毛体験〉V<span>(10分)or</span>両脇<span>(10分)</span></p>
                 <p class="free-trial__overview-detail">〈美顔体験〉フェイシャルトリートメント<span>(40分コース1回)</span></p>
             </div>
-        </section>
+        </div>
         <!-- 選ばれるポイント -->
         <section class="reasons-to-choose">
             <div class="reasons-to-choose__container">
@@ -196,7 +196,7 @@
         <section class="other-course">
             <div class="other-course__container">
                 <!-- 無料体験実施中 -->
-                <section class="free-trial">
+                <div class="free-trial">
                     <div class="free-trial__container">
                         <p class="free-trial__catch">無料体験実施中！</p>
                         <!-- カウンセリング予約のボタン -->
@@ -210,7 +210,7 @@
                             </div>
                         </a>
                     </div>
-                </section>
+                </div>
                 <!-- 2つのコース -->
                 <h2 class="other-course__title">
                     <span class="other-course__title-col1">ほかにも選べる！</span>
@@ -236,10 +236,80 @@
                 </ul>
             </div>
         </section>
+        <!-- お客様の声 -->
+        <section class="customer-voice">
+            <div class="customer-voice__container">
+                <h2 class="customer-voice__title">
+                    <!-- <span class="other-course__title-col2"> -->
+                    <img src="/assets/image/title_decoration_left.svg" alt=""><span>お客様の声</span><img src="/assets/image/title_decoration_right.svg" alt="">
+                    <!-- </span> -->
+                </h2>
+                <div class="swiper-container">
+                    <div class="swiper">
+                        <ul class="customer-voice__slide-list swiper-wrapper">
+                            <li class="customer-voice__slide-item swiper-slide">
+                                <div class="customer-voice__slide-head">フェイシャルコース</div>
+                                <div class="customer-voice__slide-body">
+                                    <div class="customer-voice__img">
+                                        <img src="/assets/image/customer_voice_01.png" alt="">
+                                    </div>
+                                    <div class="customer-voice__text">
+                                        <p class="customer-voice__name">20代 R.Bさま/大学生</p>
+                                        <p class="customer-voice__comment">ここにコピーが入ります。ここにコピーが入ります。ここにコピーが入ります。ここにコピーが入ります。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="customer-voice__slide-item swiper-slide">
+                                <div class="customer-voice__slide-head">脱毛コース</div>
+                                <div class="customer-voice__slide-body">
+                                    <div class="customer-voice__img">
+                                        <img src="/assets/image/customer_voice_02.png" alt="">
+                                    </div>
+                                    <div class="customer-voice__text">
+                                        <p class="customer-voice__name">30代 N.Tさま/会社員</p>
+                                        <p class="customer-voice__comment">納得いくまで何度も、追加料金なく安心して通うことができて大変満足しています。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="customer-voice__slide-item swiper-slide">
+                                <div class="customer-voice__slide-head">ボディコース</div>
+                                <div class="customer-voice__slide-body">
+                                    <div class="customer-voice__img">
+                                        <img src="/assets/image/customer_voice_03.png" alt="">
+                                    </div>
+                                    <div class="customer-voice__text">
+                                        <p class="customer-voice__name">20代 Y.Kさま/会社員</p>
+                                        <p class="customer-voice__comment">ここにコピーが入ります。ここにコピーが入ります。ここにコピーが入ります。ここにコピーが入ります。</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+        <!-- 無料体験実施中 -->
+        <div class="free-trial">
+            <div class="free-trial__container">
+                <p class="free-trial__catch">無料体験実施中！</p>
+                <!-- カウンセリング予約のボタン -->
+                <a href="/reservation/" class="button__main">
+                    <div class="button__main-container">
+                        <div class="button__main-text">
+                            <span>カウンセリング予約</span>
+                            <span>はこちら（無料）</span>
+                        </div>
+                        <img src="/assets/image/arrwo_right.svg" alt="">
+                    </div>
+                </a>
+            </div>
+        </div>
     </main>
-
-
-
+    <!-- ヘッダー -->
+    <footer class="footer">
+        <img src="/assets/image/footer_logo.svg" alt="">
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
