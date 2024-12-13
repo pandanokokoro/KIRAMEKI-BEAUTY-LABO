@@ -1377,11 +1377,13 @@ a {
                 font-size: vwt(28);
                 width: vwt(350);
                 height: vwt(60);
+                padding: vwt(10) 0;
             }
             @include mq(lg) {
                 font-size: px2Rem(28);
                 width: px2Rem(350);
                 height: px2Rem(60);
+                padding: px2Rem(10) 0;
             }
         }
         &:nth-of-type(1) .other-course__item-body {

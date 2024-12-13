@@ -1555,6 +1555,7 @@ a {
     font-size: 2.8vw;
     width: 35vw;
     height: 6vw;
+    padding: 1vw 0;
   }
 }
 @media screen and (min-width: 1000px) {
@@ -1562,6 +1563,7 @@ a {
     font-size: 1.75rem;
     width: 21.875rem;
     height: 3.75rem;
+    padding: 0.625rem 0;
   }
 }
 @media screen and (min-width: 768px) {
