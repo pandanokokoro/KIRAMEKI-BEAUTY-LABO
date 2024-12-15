@@ -1,6 +1,6 @@
 const swiper = new Swiper(".swiper", {
     slidesPerView: 1,
-    initialSlide: 1.5,
+    initialSlide: 1,
     spaceBetween: 10,
     breakpoints: {
       // 768px以上の場合

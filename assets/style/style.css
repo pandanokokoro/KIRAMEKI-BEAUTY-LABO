@@ -291,14 +291,12 @@ ul {
   .main-visual {
     height: 61.2vw;
     margin-top: 9.2vw;
-    background-position: left;
   }
 }
 @media screen and (min-width: 1000px) {
   .main-visual {
     height: 38.25rem;
     margin-top: 5.75rem;
-    background-position: left;
   }
 }
 .main-visual__container {
@@ -394,7 +392,7 @@ ul {
   }
 }
 .main-visual__title-text {
-  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.09);
   background-color: rgba(255, 255, 255, 0.3);
   margin-left: auto;
   padding: 4.7692307692vw 0 2.5641025641vw 6.6666666667vw;
