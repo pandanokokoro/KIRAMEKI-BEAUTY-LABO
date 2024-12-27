@@ -28,20 +28,21 @@
     <!-- ヘッダー -->
     <header class="header">
         <div class="header__container">
-            <!-- <a href="/"> -->
             <a href="/" class="header__logo">
                 <img src="/assets/image/header_logo.svg" class="header__logo-img" alt="KBL KIRAMEKI BEAUTY LABO">
             </a>
             <!-- お問い合わせボタン -->
-            <a href="/contact/" class="button__header-contact">
-                <p>お問い合わせ</p>
-                <img src="/assets/image/arrow_right.svg" alt="">
-            </a>
-            <!-- ヘッダー カウンセリング予約のボタン -->
-            <a href="/reservation/" class="button__header-reservation">
-                <p>カウンセリング予約<span>(無料)</span></p>
-                <img src="/assets/image/arrow_right.svg" alt="">
-            </a>
+            <nav class="header__nav">
+                <a href="/contact/" class="button__header-contact">
+                    <p>お問い合わせ</p>
+                    <img src="/assets/image/arrow_right.svg" alt="">
+                </a>
+                <!-- ヘッダー カウンセリング予約のボタン -->
+                <a href="/reservation/" class="button__header-reservation">
+                    <p>カウンセリング予約<span>(無料)</span></p>
+                    <img src="/assets/image/arrow_right.svg" alt="">
+                </a>
+            </nav>
         </div>
     </header>
     <!-- メイン -->
@@ -54,8 +55,11 @@
                 </div>
                 <h1 class="main-visual__title">
                     <span role="heading" aria-level="1" class="main-visual__header-container" >
-                        <img src="assets/image/main_visual_title_01.svg" class="main-visual__title-img01" alt="全身脱毛">
-                        <img src="assets/image/main_visual_title_02.svg" class="main-visual__title-img02" alt="(顔・VIO込)">
+                        <picture>
+                            <source srcset="/assets/image/main_visual_title_01.png" media="(min-width:768px)">
+                            <img src="/assets/image/main_visual_title_01.svg" class="main-visual__title-img01" alt="全身脱毛">
+                        </picture>
+                        <img src="/assets/image/main_visual_title_02.svg" class="main-visual__title-img02" alt="(顔・VIO込)">
                         <span class="main-visual__title-text">
                             <span class="main-visual__title-text-left">
                                 <span class="main-visual__title-text-item1">今だけ</span>
@@ -69,9 +73,9 @@
                 </h1>
                 <p class="main-visual__price">2,480<span>円／月</span></p>
                 <ul class="main-visual__catch-list">
-                    <li class="main-visual__catch-item">通い放題</li>
-                    <li class="main-visual__catch-item">追加料金なし</li>
-                    <li class="main-visual__catch-item">安心サポート</li>
+                    <li class="main-visual__catch-item main-visual__catch-item--1">通い放題</li>
+                    <li class="main-visual__catch-item main-visual__catch-item--2">追加料金なし</li>
+                    <li class="main-visual__catch-item main-visual__catch-item--3">安心サポート</li>
                 </ul>
             </div>
         </section>
@@ -107,8 +111,8 @@
             <!-- 無料体験内容 -->
             <div class="free-trial__overview">
                 <div class="free-trial__overview-title">無料体験内容</div>
-                <p class="free-trial__overview-detail">〈脱毛体験〉V<span>(10分)or</span>両脇<span>(10分)</span></p>
-                <p class="free-trial__overview-detail">〈美顔体験〉フェイシャルトリートメント<span>(40分コース1回)</span></p>
+                <p class="free-trial__overview-detail free-trial__overview-detail--1">〈脱毛体験〉V<span>(10分 )or</span>両脇<span>(10分)</span></p>
+                <p class="free-trial__overview-detail free-trial__overview-detail--2">〈美顔体験〉フェイシャルトリートメント<span>(40分コース 1回 )</span></p>
             </div>
         </div>
         <!-- 選ばれるポイント -->
@@ -118,11 +122,11 @@
                     <span class="reasons-to-choose__title-col1">
                         <img src="/assets/image/kirameki_beauty_labo_sp.svg" alt="Kirameki Beauty Labo"><span>が選ばれる</span>
                     </span>
-                    <span class="reasons-to-choose__title-col2">
-                        <img src="/assets/image/title_decoration_left.svg" alt=""><span>3つのポイント</span><img src="/assets/image/title_decoration_right.svg" alt="">
+                    <span  class="reasons-to-choose__title-col2">
+                        <img class="reasons-to-choose__title-col2--img1" src="/assets/image/title_decoration_left.svg" alt=""><span>3つのポイント</span><img class="reasons-to-choose__title-col2--img2" src="/assets/image/title_decoration_right.svg" alt="">
                     </span>
                 </h2>
-                <ul class="reasons-to-choose__list">
+                <ol class="reasons-to-choose__list">
                     <li class="reasons-to-choose__item">
                         <div class="reasons-to-choose__item-header">POINT1 ｜ 通い放題</div>
                         <div class="reasons-to-choose__item-body">
@@ -143,42 +147,45 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="reasons-to-choose__item">
+                    <li class="reasons-to-choose__item reasons-to-choose__item--2">
                         <div class="reasons-to-choose__item-header">POINT2 ｜ プランが選べる</div>
                         <div class="reasons-to-choose__item-body">
                             <p class="reasons-to-choose__item-text">「全身プラン」と、施術部位を選べる「部分脱毛プラン」から自由にお選びいただけます。</p>
                             <ul class="reasons-to-choose__plan">
                                 <li class="reasons-to-choose__plan-item">
-                                    <p class="reasons-to-choose__plan-title">全身プラン</p>
+                                    <!-- <p class="reasons-to-choose__plan-title">全身プラン</p> -->
                                     <div class="reasons-to-choose__full-body">
-                                        <img src="/assets/image/full_body_illust_sp.svg" alt="">
+                                        <picture>
+                                            <source srcset="/assets/image/full_body_illust_pc.png" media="(min-width: 768px)">
+                                            <img src="/assets/image/full_body_illust_sp.png" alt="">
+                                        </picture>
                                     </div>
                                 </li>
                                 <li class="reasons-to-choose__plan-item">
                                     <p class="reasons-to-choose__plan-title">部分脱毛プラン</p>
                                     <ul class="reasons-to-choose__partial-list">
                                         <li class="reasons-to-choose__partial-item">
-                                            <img src="/assets/image/point_back_of_neck.svg" alt="">
+                                            <img src="/assets/image/point_back_of_neck.png" alt="">
                                             <p class="reasons-to-choose__plan-item-name">うなじ</p>
                                         </li>
                                         <li class="reasons-to-choose__partial-item">
-                                            <img src="/assets/image/point_armpit_sp.svg" alt="">
+                                            <img src="/assets/image/point_armpit_sp.png" alt="">
                                             <p class="reasons-to-choose__plan-item-name">ワキ</p>
                                         </li>
                                         <li class="reasons-to-choose__partial-item">
-                                            <img src="/assets/image/point_o-line.svg" alt="">
+                                            <img src="/assets/image/point_o-line.png" alt="">
                                             <p class="reasons-to-choose__plan-item-name">Oライン</p>
                                         </li>
                                         <li class="reasons-to-choose__partial-item">
-                                            <img src="/assets/image/point_forehead.svg" alt="">
+                                            <img src="/assets/image/point_forehead.png" alt="">
                                             <p class="reasons-to-choose__plan-item-name">おでこ</p>
                                         </li>
                                         <li class="reasons-to-choose__partial-item">
-                                            <img src="/assets/image/point_chin.svg" alt="">
+                                            <img src="/assets/image/point_chin.png" alt="">
                                             <p class="reasons-to-choose__plan-item-name">あご</p>
                                         </li>
                                         <li class="reasons-to-choose__partial-item">
-                                            <img src="/assets/image/point_faceline.svg" alt="">
+                                            <img src="/assets/image/point_faceline.png" alt="">
                                             <p class="reasons-to-choose__plan-item-name">フェイスライン</p>
                                         </li>
                                     </ul>
@@ -192,7 +199,7 @@
                             <p class="reasons-to-choose__item-text">提携医療機関のサポートがありますので、ご安心ください。</p>
                         </div>
                     </li>
-                </ul>
+                </ol>
             </div>
         </section>
         <!-- ほかにも選べるコース -->
@@ -307,9 +314,11 @@
             </div>
         </div>
     </main>
-    <!-- ヘッダー -->
+    <!-- フッター -->
     <footer class="footer">
-        <img src="/assets/image/footer_logo.svg" alt="">
+        <a href="/" >
+            <img src="/assets/image/footer_logo.svg" alt="KBL KIRAMEKI BEAUTY LABO">
+        </a>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
